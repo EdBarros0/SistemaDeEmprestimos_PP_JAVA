@@ -73,9 +73,11 @@ public class Funcs {
 
 
     public static void removeItem(List<Emprestimos> emprestados, String nome){
-        for(Emprestimos i: emprestados){
-            if(i.verificarIgual(nome)==true){
-                emprestados.remove(i);
+        Iterator<Emprestimos> iterator = emprestados.iterator();
+        while (iterator.hasNext()) {
+            Emprestimos i = iterator.next();
+            if (i.verificarIgual(nome)) {
+                iterator.remove();
             }
         }
     }
